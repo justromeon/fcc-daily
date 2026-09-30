@@ -1,8 +1,8 @@
 module Y2026.September where
 
-import Data.List
-import Data.Ord
-import Data.Char
+import Data.List (maximumBy)
+import Data.Ord (comparing)
+import Data.Char (isPunctuation)
 import Text.Printf (printf)
 
 -- Day 29
