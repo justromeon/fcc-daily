@@ -1,7 +1,15 @@
-# FCC Daily Challenges
+# FreeCodeCamp Daily Challenges with Haskell
 
-My solutions to [FreeCodeCamp's Daily Coding Challenges](https://www.freecodecamp.org/learn/daily-coding-challenge/archive) using Haskell with no AI just to keep my fundamentals sharp.
+My solutions to [FreeCodeCamp's Daily Coding Challenges](https://www.freecodecamp.org/learn/daily-coding-challenge/archive) in Haskell **without using AI** just to keep my fundamentals sharp.
 
+## Getting Started
+
+Clone the repository and navigate into the project folder:
+
+```bash
+git clone https://github.com/justromeon/fcc-daily.git
+cd fcc-daily
+```
 
 ## Setup
 
