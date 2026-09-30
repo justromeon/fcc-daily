@@ -17,7 +17,8 @@ common warnings
 
 library
     import:           warnings
-    exposed-modules:  MyLib
+    exposed-modules:
+        Y2026.September
     -- other-modules:
     -- other-extensions:
     build-depends:    base ^>=4.20.2.0
@@ -39,11 +40,16 @@ executable fcc-daily
 test-suite fcc-daily-test
     import:           warnings
     default-language: Haskell2010
-    -- other-modules:
+    other-modules:
+        Y2026.SeptemberSpec
     -- other-extensions:
     type:             exitcode-stdio-1.0
     hs-source-dirs:   test
     main-is:          Main.hs
     build-depends:
         base ^>=4.20.2.0,
-        fcc-daily
+        fcc-daily,
+        hspec,
+        hspec-discover
+    build-tool-depends:
+        hspec-discover:hspec-discover
