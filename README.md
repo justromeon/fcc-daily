@@ -51,5 +51,5 @@ cd fcc-daily
 - Run all tests for a specific month example:
 
   ```bash
-  cabal test --test-options="-m Y2026/September"
+  cabal test --test-options="-m Y2026.September"
   ```
