@@ -11,5 +11,5 @@ getLongestWord = maximumBy (comparing length) . reverse . words . filter (not . 
 
 -- Day 30
 formatNumber :: String -> String
-formatNumber (a:b:c:d:e:f:g:rest) = printf "+%c (%s) %s-%s" a [b,c,d] [e,f,g] rest
+formatNumber [a,b,c,d,e,f,g,h,i,j,k] = printf "+%c (%s) %s-%s" a [b,c,d] [e,f,g] [h,i,j,k]
 formatNumber _ = "Invalid"
