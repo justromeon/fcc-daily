@@ -4,7 +4,7 @@ import Test.Hspec
 import Y2026.September
 
 spec :: Spec
-spec = describe "Y2026.September" $ do
+spec = do
   describe "Day 29 getLongestWord" $ do
     it "returns 'coding' for 'coding is fun'" $ do
       getLongestWord "coding is fun" `shouldBe` "coding"

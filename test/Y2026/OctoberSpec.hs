@@ -4,7 +4,7 @@ import Test.Hspec
 import Y2026.October
 
 spec :: Spec
-spec = describe "Y2026.October" $ do
+spec = do
   describe "Day 1 toDecimal" $ do
     it "returns 5 for '101'" $ do
       toDecimal "101" `shouldBe` 5
