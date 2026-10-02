@@ -19,6 +19,7 @@ library
     import:           warnings
     exposed-modules:
         Y2026.September
+        Y2026.October
     -- other-modules:
     -- other-extensions:
     build-depends:    base ^>=4.20.2.0
@@ -42,6 +43,7 @@ test-suite fcc-daily-test
     default-language: Haskell2010
     other-modules:
         Y2026.SeptemberSpec
+        Y2026.OctoberSpec
     -- other-extensions:
     type:             exitcode-stdio-1.0
     hs-source-dirs:   test
