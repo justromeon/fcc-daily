@@ -12,11 +12,12 @@ build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 -- extra-source-files:
 
-common warnings
+common common-settings
     ghc-options: -Wall
+    build-depends: containers
 
 library
-    import:           warnings
+    import:           common-settings
     exposed-modules:
         Y2026.September
         Y2026.October
@@ -27,7 +28,7 @@ library
     default-language: Haskell2010
 
 executable fcc-daily
-    import:           warnings
+    import:           common-settings
     main-is:          Main.hs
     -- other-modules:
     -- other-extensions:
@@ -39,7 +40,7 @@ executable fcc-daily
     default-language: Haskell2010
 
 test-suite fcc-daily-test
-    import:           warnings
+    import:           common-settings
     default-language: Haskell2010
     other-modules:
         Y2026.SeptemberSpec

@@ -17,3 +17,16 @@ spec = do
 
     it "returns 85 for '1010101'" $ do
       toDecimal "1010101" `shouldBe` 85
+
+  describe "Day 2 toBinary" $ do
+    it "returns '101' for 5" $ do
+      toBinary 5 `shouldBe` "101"
+
+    it "returns '1100' for 12" $ do
+      toBinary 12 `shouldBe` "1100"
+
+    it "returns '110010' for 50" $ do
+      toBinary 50 `shouldBe` "110010"
+
+    it "returns '1100011' for 99" $ do
+      toBinary 99 `shouldBe` "1100011"
