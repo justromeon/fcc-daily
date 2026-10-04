@@ -30,3 +30,23 @@ spec = do
 
     it "returns '1100011' for 99" $ do
       toBinary 99 `shouldBe` "1100011"
+
+  describe "Day 3 checkStrength" $ do
+    it "returns Weak for \"123456\"" $ do
+      checkStrength "123456" `shouldBe` Weak
+    it "returns Weak for \"pass!!!\"" $ do
+      checkStrength "pass!!!" `shouldBe` Weak
+    it "returns Weak for \"Qwerty\"" $ do
+      checkStrength "Qwerty" `shouldBe` Weak
+    it "returns Weak for \"PASSWORD\"" $ do
+      checkStrength "PASSWORD" `shouldBe` Weak
+    it "returns Medium for \"PASSWORD!\"" $ do
+      checkStrength "PASSWORD!" `shouldBe` Medium
+    it "returns Medium for \"PassWord%^!\"" $ do
+      checkStrength "PassWord%^!" `shouldBe` Medium
+    it "returns Medium for \"qwerty12345\"" $ do
+      checkStrength "qwerty12345" `shouldBe` Medium
+    it "returns Strong for \"S3cur3P@ssw0rd\"" $ do
+      checkStrength "S3cur3P@ssw0rd" `shouldBe` Strong
+    it "returns Strong for \"C0d3&Fun!\"" $ do
+      checkStrength "C0d3&Fun!" `shouldBe` Strong
