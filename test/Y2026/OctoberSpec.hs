@@ -50,3 +50,21 @@ spec = do
       checkStrength "S3cur3P@ssw0rd" `shouldBe` Strong
     it "returns Strong for \"C0d3&Fun!\"" $ do
       checkStrength "C0d3&Fun!" `shouldBe` Strong
+
+  describe "Stellar Classification" $ do
+    it "returns G for 5778" $ do
+      classification (5778 :: Int) `shouldBe` G
+    it "returns M for 2400" $ do
+      classification (2400 :: Double) `shouldBe` M
+    it "returns A for 9999" $ do
+      classification (9999 :: Float) `shouldBe` A
+    it "returns K for 3700" $ do
+      classification (3700 :: Integer) `shouldBe` K
+    it "returns M for 3699" $ do
+      classification (3699 :: Int) `shouldBe` M
+    it "returns O for 210000" $ do
+      classification (210000 :: Double) `shouldBe` O
+    it "returns F for 6000" $ do
+      classification (6000 :: Float) `shouldBe` F
+    it "returns B for 11432" $ do
+      classification (11432 :: Integer) `shouldBe` B

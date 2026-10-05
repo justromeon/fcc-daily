@@ -2,6 +2,7 @@ module Y2026.October where
 
 import Data.Char (digitToInt, isUpper, isLower, isDigit)
 import Data.Sequence (unfoldl)
+import Data.List (findIndex)
 
 -- Day 1
 toDecimal :: String -> Int
@@ -30,3 +31,13 @@ checkStrength = eval . sum . map fromEnum . sequence [isLongEnough, hasBothCases
       | n == 4 = Strong
       | n >= 2 = Medium
       | otherwise = Weak
+
+-- Day 4
+data StellarClass
+  = O | B | A | F | G | K | M
+  deriving (Eq, Show, Enum)
+
+classification :: (Num a, Ord a) => a -> StellarClass
+classification temp
+  = maybe M toEnum
+  $ findIndex (temp>=) [30000, 10000, 7500, 6000, 5200, 3700]
