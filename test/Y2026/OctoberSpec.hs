@@ -51,7 +51,7 @@ spec = do
     it "returns Strong for \"C0d3&Fun!\"" $ do
       checkStrength "C0d3&Fun!" `shouldBe` Strong
 
-  describe "Stellar Classification" $ do
+  describe "Day 4 Stellar Classification" $ do
     it "returns G for 5778" $ do
       classification (5778 :: Int) `shouldBe` G
     it "returns M for 2400" $ do
@@ -68,3 +68,17 @@ spec = do
       classification (6000 :: Float) `shouldBe` F
     it "returns B for 11432" $ do
       classification (11432 :: Integer) `shouldBe` B
+
+  describe "Day 5 hasExoplanet" $ do
+    it "returns false for \"665544554\"" $ do
+      hasExoplanet "665544554" `shouldBe` False
+    it "returns true for \"FGFFCFFGG\"" $ do
+      hasExoplanet "FGFFCFFGG" `shouldBe` True
+    it "returns false for \"MONOPLONOMONPLNOMPNOMP\"" $ do
+      hasExoplanet "MONOPLONOMONPLNOMPNOMP" `shouldBe` False
+    it "returns true for \"FREECODECAMP\"" $ do
+      hasExoplanet "FREECODECAMP" `shouldBe` True
+    it "returns false for \"9AB98AB9BC98A\"" $ do
+      hasExoplanet "9AB98AB9BC98A" `shouldBe` False
+    it "returns true for \"ZXXWYZXYWYXZEGZXWYZXYGEE\"" $ do
+      hasExoplanet "ZXXWYZXYWYXZEGZXWYZXYGEE" `shouldBe` True

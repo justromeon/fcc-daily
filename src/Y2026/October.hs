@@ -3,6 +3,8 @@ module Y2026.October where
 import Data.Char (digitToInt, isUpper, isLower, isDigit)
 import Data.Sequence (unfoldl)
 import Data.List (findIndex)
+import Data.Map qualified as Map
+import Data.Map (Map)
 
 -- Day 1
 toDecimal :: String -> Int
@@ -41,3 +43,14 @@ classification :: (Num a, Ord a) => a -> StellarClass
 classification temp
   = maybe M toEnum
   $ findIndex (temp>=) [30000, 10000, 7500, 6000, 5200, 3700]
+
+-- Day 5
+hasExoplanet :: String -> Bool
+hasExoplanet reading = any isLessThanThreshold reading
+  where
+    isLessThanThreshold = maybe False (<= mean*0.8) . flip Map.lookup luminosityLevels
+    mean  =  total / (fromIntegral $ length reading)
+    total = sum $ map (flip (Map.findWithDefault 0) luminosityLevels) reading
+
+luminosityLevels :: Map Char Double
+luminosityLevels = Map.fromList $ zip (['0'..'9']++['A'..'Z']) [0..]
