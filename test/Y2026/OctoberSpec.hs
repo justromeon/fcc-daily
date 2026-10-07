@@ -76,3 +76,17 @@ spec = do
       hasExoplanet "9AB98AB9BC98A" `shouldBe` False
     it "returns True for \"ZXXWYZXYWYXZEGZXWYZXYGEE\"" $ do
       hasExoplanet "ZXXWYZXYWYXZEGZXWYZXYGEE" `shouldBe` True
+
+  describe "Day 5 sendMessage" $ do
+    it "returns 2.5 for [300000, 300000]" $ do
+      sendMessage [300000, 300000] `shouldBe` 2.5
+    it "returns 3.0627 for [384400, 384400]" $ do
+      sendMessage [384400, 384400] `shouldBe` 3.0627
+    it "returns 364.5 for [54600000, 54600000]" $ do
+      sendMessage [54600000, 54600000] `shouldBe` 364.5
+    it "returns 1674.3333 for [1000000, 500000000, 1000000]" $ do
+      sendMessage [1000000, 500000000, 1000000] `shouldBe` 1674.3333
+    it "returns 2.4086 for [10000, 21339, 50000, 31243, 10000]" $ do
+      sendMessage [10000, 21339, 50000, 31243, 10000] `shouldBe` 2.4086
+    it "returns 21.1597 for [802101, 725994, 112808, 3625770, 481239]" $ do
+      sendMessage [802101, 725994, 112808, 3625770, 481239] `shouldBe` 21.1597

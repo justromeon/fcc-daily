@@ -54,3 +54,12 @@ hasExoplanet reading = any isLessThanThreshold reading
 
 luminosityLevels :: Map Char Double
 luminosityLevels = Map.fromList $ zip (['0'..'9']++['A'..'Z']) [0..]
+
+-- Day 6
+sendMessage :: [Double] -> Double
+sendMessage distances = roundTo4 (travelTime + totalDelay)
+  where
+    totalDelay = (*0.5) . pred . fromIntegral $ length distances
+    travelTime = sum $ map (/messageSpeed) distances
+    messageSpeed = 300000
+    roundTo4 x = fromIntegral (round (x * 10000) :: Integer) / 10000
