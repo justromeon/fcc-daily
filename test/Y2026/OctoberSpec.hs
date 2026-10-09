@@ -77,7 +77,7 @@ spec = do
     it "returns True for \"ZXXWYZXYWYXZEGZXWYZXYGEE\"" $ do
       hasExoplanet "ZXXWYZXYWYXZEGZXWYZXYGEE" `shouldBe` True
 
-  describe "Day 5 sendMessage" $ do
+  describe "Day 6 sendMessage" $ do
     it "returns 2.5 for [300000, 300000]" $ do
       sendMessage [300000, 300000] `shouldBe` 2.5
     it "returns 3.0627 for [384400, 384400]" $ do
@@ -90,3 +90,17 @@ spec = do
       sendMessage [10000, 21339, 50000, 31243, 10000] `shouldBe` 2.4086
     it "returns 21.1597 for [802101, 725994, 112808, 3625770, 481239]" $ do
       sendMessage [802101, 725994, 112808, 3625770, 481239] `shouldBe` 21.1597
+
+  describe "Day 7 findLandingSpot" $ do
+    it "returns Just (0, 1) for [[1, 0], [2, 0]]" $ do
+      findLandingSpot [[1, 0], [2, 0]] `shouldBe` Just (0, 1)
+    it "returns Just (1, 1) for [[9, 0, 3], [7, 0, 4], [8, 0, 5]]" $ do
+      findLandingSpot [[9, 0, 3], [7, 0, 4], [8, 0, 5]] `shouldBe` Just (1, 1)
+    it "returns Just (2, 2) for [[1, 2, 1], [0, 0, 2], [3, 0, 0]]" $ do
+      findLandingSpot [[1, 2, 1], [0, 0, 2], [3, 0, 0]] `shouldBe` Just (2, 2)
+    it "returns Just (2, 1) for a 4x4 grid" $ do
+      findLandingSpot [[9, 6, 0, 8], [7, 1, 1, 0], [3, 0, 3, 9], [8, 6, 0, 9]] `shouldBe` Just (2, 1)
+    it "returns Nothing for an empty grid" $ do
+      findLandingSpot [] `shouldBe` Nothing
+    it "returns Nothing when no valid landing spot exists" $ do
+      findLandingSpot [[1, 2], [3, 4]] `shouldBe` Nothing

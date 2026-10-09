@@ -14,7 +14,9 @@ extra-doc-files:    CHANGELOG.md
 
 common common-settings
     ghc-options: -Wall
-    build-depends: containers
+    build-depends:
+      containers,
+      vector
     default-extensions: ImportQualifiedPost
 
 library

@@ -1,10 +1,14 @@
+{-# LANGUAGE TupleSections #-}
 module Y2026.October where
 
 import Data.Char (digitToInt, isUpper, isLower, isDigit)
 import Data.Sequence (unfoldl)
-import Data.List (findIndex)
+import Data.List (findIndex, sortOn)
 import Data.Map qualified as Map
 import Data.Map (Map)
+import Data.Vector ((!?))
+import Data.Vector qualified as V
+import Data.Maybe (listToMaybe, mapMaybe)
 
 -- Day 1
 toDecimal :: String -> Int
@@ -63,3 +67,14 @@ sendMessage distances = roundTo4 (travelTime + totalDelay)
     travelTime = sum $ map (/messageSpeed) distances
     messageSpeed = 300000
     roundTo4 x = fromIntegral (round (x * 10000) :: Integer) / 10000
+
+-- Day 7
+type Position = (Int, Int)
+
+findLandingSpot :: [[Int]] -> Maybe Position
+findLandingSpot m =
+  listToMaybe $ sortOn danger [(r, c) | (r, row) <- zip [0..] m, (c, x) <- zip [0..] row, x == 0]
+  where
+    vector2d = V.fromList (map V.fromList m)
+    danger (r, c) = sum $ mapMaybe (\(i, j) -> vector2d !? i >>= (!? j))
+      [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]
