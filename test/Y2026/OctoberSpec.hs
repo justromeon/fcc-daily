@@ -104,3 +104,15 @@ spec = do
       findLandingSpot [] `shouldBe` Nothing
     it "returns Nothing when no valid landing spot exists" $ do
       findLandingSpot [[1, 2], [3, 4]] `shouldBe` Nothing
+
+  describe "goldilocksZone" $ do
+    it "returns GoldilocksZone 0.95 1.37 for 1" $ do
+      goldilocksZone 1 `shouldBe` GoldilocksZone 0.95 1.37
+    it "returns GoldilocksZone 0.28 0.41 for 0.5" $ do
+      goldilocksZone 0.5 `shouldBe` GoldilocksZone 0.28 0.41
+    it "returns GoldilocksZone 21.85 31.51 for 6" $ do
+      goldilocksZone 6 `shouldBe` GoldilocksZone 21.85 31.51
+    it "returns GoldilocksZone 9.38 13.52 for 3.7" $ do
+      goldilocksZone 3.7 `shouldBe` GoldilocksZone 9.38 13.52
+    it "returns GoldilocksZone 179.69 259.13 for 20" $ do
+      goldilocksZone 20 `shouldBe` GoldilocksZone 179.69 259.13

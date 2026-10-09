@@ -9,6 +9,7 @@ import Data.Map (Map)
 import Data.Vector ((!?))
 import Data.Vector qualified as V
 import Data.Maybe (listToMaybe, mapMaybe)
+import Data.Function (on)
 
 -- Day 1
 toDecimal :: String -> Int
@@ -78,3 +79,15 @@ findLandingSpot m =
     vector2d = V.fromList (map V.fromList m)
     danger (r, c) = sum $ mapMaybe (\(i, j) -> vector2d !? i >>= (!? j))
       [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]
+
+-- Day 8
+data GoldilocksZone = GoldilocksZone
+  { start :: Double
+  , end :: Double
+  } deriving (Eq, Show)
+
+goldilocksZone :: Double -> GoldilocksZone
+goldilocksZone = ((GoldilocksZone `on` roundTo2dec) <$> (*0.95) <*> (*1.37)) . luminosity
+  where
+    luminosity = sqrt . (**3.5)
+    roundTo2dec n = fromIntegral (round $ n * 100 :: Int) / 100
