@@ -10,6 +10,7 @@ import Data.Vector ((!?))
 import Data.Vector qualified as V
 import Data.Maybe (listToMaybe, mapMaybe)
 import Data.Function (on)
+import Data.Time (diffDays, fromGregorian, parseTimeM, defaultTimeLocale)
 
 -- Day 1
 toDecimal :: String -> Int
@@ -91,3 +92,19 @@ goldilocksZone = ((GoldilocksZone `on` roundTo2dec) <$> (*0.95) <*> (*1.37)) . l
   where
     luminosity = sqrt . (**3.5)
     roundTo2dec n = fromIntegral (round $ n * 100 :: Int) / 100
+
+
+-- Day 9
+data MoonPhase
+  = New
+  | Waxing
+  | Full
+  | Waning
+  deriving (Eq, Enum, Show)
+
+moonPhase :: String -> Maybe MoonPhase
+moonPhase = fmap f . parse
+  where
+    f = toEnum . (`div` 7) . (`mod` 28) . fromInteger . flip diffDays dayOne
+    dayOne = fromGregorian 2000 1 6
+    parse = parseTimeM True defaultTimeLocale "%Y-%m-%d"

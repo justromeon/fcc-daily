@@ -16,7 +16,8 @@ common common-settings
     ghc-options: -Wall
     build-depends:
       containers,
-      vector
+      vector,
+      time
     default-extensions: ImportQualifiedPost
 
 library
