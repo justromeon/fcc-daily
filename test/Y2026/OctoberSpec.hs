@@ -128,3 +128,15 @@ spec = do
       moonPhase "2012-10-21" `shouldBe` Just Waning
     it "returns \"New\" for \"2022-12-14\"" $ do
       moonPhase "2022-12-14" `shouldBe` Just New
+
+    describe "Day 10 launchFuel" $ do
+      it "returns 12.4 for 50" $ do
+        launchFuel 50 `shouldBe` 12.4
+      it "returns 124.8 for 500" $ do
+        launchFuel 500 `shouldBe` 124.8
+      it "returns 60.7 for 243" $ do
+        launchFuel 243 `shouldBe` 60.7
+      it "returns 2749.8 for 11000" $ do
+        launchFuel 11000 `shouldBe` 2749.8
+      it "returns 1553.4 for 6214" $ do
+        launchFuel 6214 `shouldBe` 1553.4

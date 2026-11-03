@@ -108,3 +108,11 @@ moonPhase = fmap f . parse
     f = toEnum . (`div` 7) . (`mod` 28) . fromInteger . flip diffDays dayOne
     dayOne = fromGregorian 2000 1 6
     parse = parseTimeM True defaultTimeLocale "%Y-%m-%d"
+
+-- Day 10
+launchFuel :: Double -> Double
+launchFuel payload = roundTo1dec . snd . addFuel $ until p addFuel (payload, 0)
+  where
+    p (mass, fuel) = mass/5 - fuel < 1
+    addFuel (mass, fuel) = (mass + (mass/5 - fuel), mass/5)
+    roundTo1dec n = fromIntegral (round $ n * 10 :: Int) / 10
