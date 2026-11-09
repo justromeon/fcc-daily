@@ -129,14 +129,26 @@ spec = do
     it "returns \"New\" for \"2022-12-14\"" $ do
       moonPhase "2022-12-14" `shouldBe` Just New
 
-    describe "Day 10 launchFuel" $ do
-      it "returns 12.4 for 50" $ do
-        launchFuel 50 `shouldBe` 12.4
-      it "returns 124.8 for 500" $ do
-        launchFuel 500 `shouldBe` 124.8
-      it "returns 60.7 for 243" $ do
-        launchFuel 243 `shouldBe` 60.7
-      it "returns 2749.8 for 11000" $ do
-        launchFuel 11000 `shouldBe` 2749.8
-      it "returns 1553.4 for 6214" $ do
-        launchFuel 6214 `shouldBe` 1553.4
+  describe "Day 10 launchFuel" $ do
+    it "returns 12.4 for 50" $ do
+      launchFuel 50 `shouldBe` 12.4
+    it "returns 124.8 for 500" $ do
+      launchFuel 500 `shouldBe` 124.8
+    it "returns 60.7 for 243" $ do
+      launchFuel 243 `shouldBe` 60.7
+    it "returns 2749.8 for 11000" $ do
+      launchFuel 11000 `shouldBe` 2749.8
+    it "returns 1553.4 for 6214" $ do
+      launchFuel 6214 `shouldBe` 1553.4
+
+  describe "Day 11 hexToDecimal" $ do
+    it "returns 10 for \"A\"" $ do
+      hexToDecimal "A" `shouldBe` 10
+    it "returns 21 for \"15\"" $ do
+      hexToDecimal "15" `shouldBe` 21
+    it "returns 46 for \"2E\"" $ do
+      hexToDecimal "2E" `shouldBe` 46
+    it "returns 255 for \"FF\"" $ do
+      hexToDecimal "FF" `shouldBe` 255
+    it "returns 2623 for \"A3F\"" $ do
+      hexToDecimal "A3F" `shouldBe` 2623

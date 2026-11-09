@@ -3,7 +3,7 @@ module Y2026.October where
 
 import Data.Char (digitToInt, isUpper, isLower, isDigit)
 import Data.Sequence (unfoldl)
-import Data.List (findIndex, sortOn)
+import Data.List (findIndex, sortOn, elemIndex)
 import Data.Map qualified as Map
 import Data.Map (Map)
 import Data.Vector ((!?))
@@ -116,3 +116,9 @@ launchFuel payload = roundTo1dec . snd . addFuel $ until p addFuel (payload, 0)
     p (mass, fuel) = mass/5 - fuel < 1
     addFuel (mass, fuel) = (mass + (mass/5 - fuel), mass/5)
     roundTo1dec n = fromIntegral (round $ n * 10 :: Int) / 10
+
+-- Day 11
+hexToDecimal :: String -> Int
+hexToDecimal = foldl (\acc x -> acc * 16 + f x) 0
+  where
+    f n = maybe (digitToInt n) (+10) (elemIndex n ['A'..'F'])
